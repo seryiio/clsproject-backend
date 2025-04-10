@@ -1,0 +1,78 @@
+import { VelocidadOptima } from '../models/velocidadOptima.model.js';
+
+export const obtenerVelocidadOptima = async (req, res) => {
+    try {
+        const velocidades = await VelocidadOptima.findAll({
+        });
+        res.json(velocidades);
+    } catch (error) {
+        console.error('Error al obtener las velocidades de las embarcaciones:', error);
+        res.status(500).json({ error: 'Error al obtener las velocidades de las embarcaciones' });
+    }
+}
+
+export const obtenerVelocidadOptimaporEmbarcacion = async (req, res) => {
+    try {
+        const { embarcacion } = req.params;
+        const velocidad = await VelocidadOptima.findOne({
+            where: { embarcacion },
+            attributes: ['velocidad_optima'],
+        });
+        if (!velocidad) {
+            return res.status(404).json({ error: 'Embarcación no encontrada' });
+        }
+
+        res.json(velocidad);
+    } catch (error) {
+        console.error('Error al obtener las velocidades de las embarcaciones:', error);
+        res.status(500).json({ error: 'Error al obtener las velocidades de las embarcaciones' });
+    }
+}
+
+
+export const crearVelocidadOptima = async (req, res) => {
+
+    const { embarcacion, velocidad_optima } = req.body;
+
+    try {
+        const nuevaVelocidad = await VelocidadOptima.create({
+            embarcacion, velocidad_optima
+        })
+        res.json(nuevaVelocidad);
+    } catch (error) {
+        console.error('Error al crear velocidad:', error);
+        res.status(500).json({ error: 'Error al crear velocidad' });
+    }
+}
+
+export const actualizarVelocidad = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { velocidad_optima } = req.body;
+
+        const velocidad = await VelocidadOptima.findByPk(id);
+        velocidad.velocidad_optima = velocidad_optima;
+
+        await velocidad.save();
+        res.json(velocidad);
+
+    } catch (error) {
+        console.error('Error al actualizar la velocidad:', error);
+        res.status(500).json({ error: 'Error al actualizar la velocidad' });
+    }
+}
+
+export const borrarVelocidad = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await VelocidadOptima.destroy({
+            where: {
+                id,
+            }
+        });
+        res.sendStatus(204);
+    } catch (error) {
+        console.error('Error al eliminar la velocidad:', error);
+        res.status(500).json({ error: 'Error al eliminar la velocidad' });
+    }
+}
