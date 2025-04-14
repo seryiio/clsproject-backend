@@ -13,11 +13,11 @@ export const obtenerOrdenNavegacionOptima = async (req, res) => {
 
 export const crearOrdenNavegacionOptima = async (req, res) => {
 
-    const { usuario, fecha_hora, embarcacion, codigo_operacion, velocidad_optima } = req.body;
+    const { fecha_hora, embarcacion, velocidad_optima } = req.body;
 
     try {
         const nuevanavegacionVelocidadOptima = await OrdenNavegacionOptima.create({
-            usuario, fecha_hora, embarcacion, codigo_operacion, velocidad_optima
+            fecha_hora, embarcacion, velocidad_optima
         })
         res.json(nuevanavegacionVelocidadOptima);
     } catch (error) {

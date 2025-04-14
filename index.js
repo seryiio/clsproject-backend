@@ -1,12 +1,15 @@
 import app from './app.js'
 import { config } from 'dotenv'
-import { sequelize } from './database/db.js'
+import { VelocidadOptima } from './models/velocidadOptima.model.js';
+import { OrdenNavegacionOptima } from './models/ordenNavegacionOptima.model.js';
 
 config();
 
 async function main() {
     try {
-        await sequelize.sync({ force: false })
+        await
+        VelocidadOptima.sync({ force: false })
+        OrdenNavegacionOptima.sync({ force: false })
         app.listen(4000);
         console.log('Server RUN!');
     } catch (error) {

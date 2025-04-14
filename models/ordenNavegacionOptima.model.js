@@ -1,27 +1,25 @@
-import { DataTypes } from 'sequelize';
-import { sequelize } from '../database/db.js';
+import { DataTypes, Sequelize } from 'sequelize';
+import { sequelizePrincipal } from '../database/db.js';
 
-export const OrdenNavegacionOptima = sequelize.define('ORDEN_NAV_OPTIMA', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    usuario: {
-        type: DataTypes.STRING,
-    },
-    fecha_hora: {
-        type: DataTypes.DATE,
-    },
-    embarcacion: {
-        type: DataTypes.STRING,
-    },
-    codigo_operacion: {
-        type: DataTypes.STRING,
-    },
-    velocidad_optima: {
-        type: DataTypes.INTEGER,
-    },
+import moment from 'moment';
+
+export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  fecha_hora: {
+    type: Sequelize.TEXT,
+  },
+  embarcacion: {
+    type: Sequelize.TEXT,
+  },
+  velocidad_optima: {
+    type: Sequelize.INTEGER,
+  },
 }, {
-    timestamps: false,
+  timestamps: false,
+  tableName: 'ORDEN_NAV_OPTIMA',
+  freezeTableName: true,
 });

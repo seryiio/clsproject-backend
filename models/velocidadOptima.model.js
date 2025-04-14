@@ -1,7 +1,7 @@
+import { sequelizePrincipal } from '../database/db.js';
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../database/db.js';
 
-export const VelocidadOptima = sequelize.define('VEL_OPTIMA', {
+export const VelocidadOptima = sequelizePrincipal.define('VEL_OPTIMA', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -15,4 +15,6 @@ export const VelocidadOptima = sequelize.define('VEL_OPTIMA', {
     },
 }, {
     timestamps: false,
+    tableName: 'VEL_OPTIMA',
+    freezeTableName: true
 });

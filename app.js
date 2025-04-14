@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import velocidadOptimaRoutes from './routes/velocidadOptima.routes.js'
-import codigoOperacionRoutes from './routes/codigoOperacion.routes.js'
+import embarcacionesFaena from './routes/embarcacionesFaena.routes.js'
 import ordenNavegacionOptimaRoutes from './routes/ordenNavegacionOptima.routes.js'
 
 const app = express();
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/v1', velocidadOptimaRoutes)
-app.use('/api/v1', codigoOperacionRoutes)
+app.use('/api/v1', embarcacionesFaena)
 app.use('/api/v1', ordenNavegacionOptimaRoutes)
 
 app.listen(port, () => {

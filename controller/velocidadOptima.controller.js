@@ -61,18 +61,3 @@ export const actualizarVelocidad = async (req, res) => {
         res.status(500).json({ error: 'Error al actualizar la velocidad' });
     }
 }
-
-export const borrarVelocidad = async (req, res) => {
-    try {
-        const { id } = req.params;
-        await VelocidadOptima.destroy({
-            where: {
-                id,
-            }
-        });
-        res.sendStatus(204);
-    } catch (error) {
-        console.error('Error al eliminar la velocidad:', error);
-        res.status(500).json({ error: 'Error al eliminar la velocidad' });
-    }
-}
