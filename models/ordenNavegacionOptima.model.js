@@ -1,8 +1,6 @@
 import { DataTypes, Sequelize } from 'sequelize';
 import { sequelizePrincipal } from '../database/db.js';
 
-import moment from 'moment';
-
 export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA', {
   id: {
     type: Sequelize.INTEGER,
