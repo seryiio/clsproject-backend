@@ -7,7 +7,7 @@ export const EmbarcacionesFaena = sequelizePrincipal.define('EmbarcacionesFaena'
     allowNull: true
   }
 }, {
-  tableName: 'List_EmbarcacionesZarpe',
+  tableName: 'vw_ListaEmbarcac_Zarpe',
   schema: 'Flota',
   timestamps: false,
   freezeTableName: true
