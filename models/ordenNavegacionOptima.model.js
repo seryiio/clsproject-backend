@@ -16,6 +16,9 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
   velocidad_optima: {
     type: Sequelize.INTEGER,
   },
+  usuario: {
+    type: Sequelize.TEXT,
+  },
 }, {
   timestamps: false,
   tableName: 'ORDEN_NAV_OPTIMA',
