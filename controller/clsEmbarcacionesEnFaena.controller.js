@@ -3,7 +3,7 @@ import { EmbarcacionesFaena } from '../models/clsEmbarcacionFaena.model.js';
 export const obtenerTodasEmbarcacionesEnFaena = async (req, res) => {
   try {
     const embarcaciones = await EmbarcacionesFaena.findAll({
-      attributes: ['EMBARCACION', 'CODOR', 'FECZR', 'FECAR'],
+      attributes: ['EMBARCACION', 'CODOR', 'FECZR', 'FECAR','HORZR','HORAR'],
       raw: true,
       distinct: true,
     });
