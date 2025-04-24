@@ -3,9 +3,9 @@ import { EmbarcacionesFaena } from '../models/clsEmbarcacionFaena.model.js';
 export const obtenerTodasEmbarcacionesEnFaena = async (req, res) => {
   try {
     const embarcaciones = await EmbarcacionesFaena.findAll({
-      attributes: ['EMBARCACION'],
-      group: ['EMBARCACION'],
-      raw: true
+      attributes: ['EMBARCACION', 'CODOR', 'FECZR', 'FECAR'],
+      raw: true,
+      distinct: true,
     });
 
     res.json(embarcaciones);

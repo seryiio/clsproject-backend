@@ -19,6 +19,21 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
   usuario: {
     type: Sequelize.TEXT,
   },
+  CODOR: {
+    type: Sequelize.TEXT,
+  },
+  FECZR: {
+    type: Sequelize.TEXT,
+  },
+  FECAR: {
+    type: Sequelize.TEXT,
+  },
+  HORZR: {
+    type: DataTypes.STRING,
+  },
+  HORAR: {
+    type: DataTypes.STRING,
+  }
 }, {
   timestamps: false,
   tableName: 'ORDEN_NAV_OPTIMA',
