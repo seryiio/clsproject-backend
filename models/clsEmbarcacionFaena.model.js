@@ -6,6 +6,10 @@ export const EmbarcacionesFaena = sequelizePrincipal.define('EmbarcacionesFaena'
     type: DataTypes.STRING,
     allowNull: true
   },
+  MATRICULA: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   CODOR: {
     type: DataTypes.STRING,
   },

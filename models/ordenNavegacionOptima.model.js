@@ -10,6 +10,9 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
   fecha_hora: {
     type: Sequelize.TEXT,
   },
+  matricula: {
+    type: Sequelize.TEXT,
+  },
   embarcacion: {
     type: Sequelize.TEXT,
   },
