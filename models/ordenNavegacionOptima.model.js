@@ -22,6 +22,9 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
   gph: {
     type: Sequelize.INTEGER,
   },
+  rpm: {
+    type: Sequelize.INTEGER,
+  },
   usuario: {
     type: Sequelize.TEXT,
   },

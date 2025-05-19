@@ -16,6 +16,9 @@ export const VelocidadOptima = sequelizePrincipal.define('VEL_OPTIMA', {
     gph: {
         type: DataTypes.INTEGER,
     },
+    rpm: {
+        type: DataTypes.INTEGER,
+    }
 }, {
     timestamps: false,
     tableName: 'VEL_OPTIMA',

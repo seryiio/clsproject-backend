@@ -29,8 +29,6 @@ export const obtenerVelocidadOptimaporEmbarcacion = async (req, res) => {
     }
 }
 
-
-
 export const obtenerGphOptimoporEmbarcacion = async (req, res) => {
     try {
         const { embarcacion } = req.params;
@@ -49,14 +47,32 @@ export const obtenerGphOptimoporEmbarcacion = async (req, res) => {
     }
 }
 
+export const obtenerRpmOptimoporEmbarcacion = async (req, res) => {
+    try {
+        const { embarcacion } = req.params;
+        const velocidad = await VelocidadOptima.findOne({
+            where: { embarcacion },
+            attributes: ['rpm'],
+        });
+        if (!velocidad) {
+            return res.status(404).json({ error: 'Embarcación no encontrada' });
+        }
+
+        res.json(velocidad);
+    } catch (error) {
+        console.error('Error al obtener las velocidades de las embarcaciones:', error);
+        res.status(500).json({ error: 'Error al obtener las velocidades de las embarcaciones' });
+    }
+}
+
 
 export const crearVelocidadOptima = async (req, res) => {
 
-    const { embarcacion, velocidad_optima, gph } = req.body;
+    const { embarcacion, velocidad_optima, gph, rpm } = req.body;
 
     try {
         const nuevaVelocidad = await VelocidadOptima.create({
-            embarcacion, velocidad_optima, gph
+            embarcacion, velocidad_optima, gph, rpm
         })
         res.json(nuevaVelocidad);
     } catch (error) {
