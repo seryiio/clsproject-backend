@@ -19,10 +19,16 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
   velocidad_optima: {
     type: Sequelize.INTEGER,
   },
+  velocidad_nominal: {
+    type: Sequelize.INTEGER,
+  },
   gph: {
     type: Sequelize.INTEGER,
   },
   rpm: {
+    type: Sequelize.INTEGER,
+  },
+  rpm_nominal: {
     type: Sequelize.INTEGER,
   },
   usuario: {

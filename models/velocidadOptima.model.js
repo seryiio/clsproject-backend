@@ -7,16 +7,25 @@ export const VelocidadOptima = sequelizePrincipal.define('VEL_OPTIMA', {
         primaryKey: true,
         autoIncrement: true
     },
+    matricula: {
+        type: DataTypes.STRING,
+    },
     embarcacion: {
         type: DataTypes.STRING,
     },
     velocidad_optima: {
         type: DataTypes.INTEGER,
     },
+    velocidad_nominal: {
+        type: DataTypes.INTEGER,
+    },
     gph: {
         type: DataTypes.INTEGER,
     },
     rpm: {
+        type: DataTypes.INTEGER,
+    },
+    rpm_nominal: {
         type: DataTypes.INTEGER,
     }
 }, {
