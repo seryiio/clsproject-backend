@@ -8,7 +8,7 @@ export const OrdenNavegacionOptima = sequelizePrincipal.define('ORDEN_NAV_OPTIMA
     autoIncrement: true
   },
   fecha_hora: {
-    type: Sequelize.TEXT,
+    type: Sequelize.DATE,
   },
   matricula: {
     type: Sequelize.TEXT,
